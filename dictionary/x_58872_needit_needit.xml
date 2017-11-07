@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<database>
+    <element label="NeedIt" max_length="40" name="x_58872_needit_needit" type="collection">
+        <element attributes="ignore_filter_on_new=true" default="javascript:global.getNextObjNumberPadded();" label="Number" max_length="40" name="number" type="string"/>
+        <element attributes="edge_encryption_enabled=true" choice="1" default="13" label="State" max_length="40" name="u_choice_2" type="string">
+            <choice>
+                <element label="Reqested" sequence="0" value="13"/>
+                <element label="Awaiting Approval" sequence="1" value="14"/>
+                <element label="Approved" sequence="2" value="15"/>
+                <element label="Awaiting Feedback" sequence="3" value="16"/>
+                <element label="Closed Completed" sequence="4" value="3"/>
+                <element label="Withdrawn" sequence="5" value="8"/>
+            </choice>
+        </element>
+        <element attributes="edge_encryption_enabled=true" choice="1" label="Priority" mandatory="true" max_length="40" name="u_choice_4" type="string">
+            <choice>
+                <element label="1-Critical" sequence="0" value="1"/>
+                <element label="2-High" sequence="1" value="2"/>
+                <element label="3-Medium" sequence="2" value="3"/>
+                <element label="4-Low" sequence="3" value="4"/>
+            </choice>
+        </element>
+        <element attributes="edge_encryption_enabled=true" choice="1" default="legal" label="Request type" mandatory="true" max_length="40" name="u_choice_7" type="string" use_dependent_field="true">
+            <choice>
+                <element label="Hr" sequence="0" value="Hr"/>
+                <element label="Legal" sequence="1" value="legal"/>
+                <element label="Facilities" sequence="2" value="facilities"/>
+            </choice>
+        </element>
+        <element label="When needed" mandatory="true" max_length="40" name="u_glide_date_9" type="glide_date"/>
+        <element label="New Long" max_length="40" name="u_longint_11" type="longint"/>
+        <element label="Requested for" mandatory="true" max_length="32" name="u_reference_6" reference="sys_user" type="reference"/>
+        <element attributes="edge_encryption_enabled=true" label="Short Description" mandatory="true" max_length="40" name="u_string_3" type="string"/>
+        <element attributes="edge_encryption_enabled=true" dependent="u_reference_6" dependent_on_field="u_reference_6" label="Your department" max_length="40" name="u_string_8" type="string" use_dependent_field="true"/>
+        <element attributes="edge_encryption_enabled=true" label="Description" mandatory="true" max_length="255" name="u_string_full_utf8_10" type="string_full_utf8"/>
+        <element label="New Translated Text" max_length="40" name="u_translated_text_13" type="translated_text"/>
+        <element attributes="preview_selector=true,preview_first=true,is_multi_text=true" label="New Wiki" max_length="65536" name="u_wiki_text_12" type="wiki_text"/>
+        <index name="index">
+            <element name="u_reference_6"/>
+        </index>
+    </element>
+</database>
